@@ -4,6 +4,10 @@ def longestSubstring(s):
     """
 
     """
+    difficulty: medium 
+    time: O(n)
+    space: O(n)
+
     Idea: sliding window
     - use dictionary to store the index and char 
     - search through the string, and if found in the dict and start <= found char index, re-position the start 
