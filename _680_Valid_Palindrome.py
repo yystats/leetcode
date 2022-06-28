@@ -1,6 +1,3 @@
-from xml.etree.ElementTree import TreeBuilder
-
-
 def isValidPalindrome(s):
     """
     Given a string s, return true if the s can be palindrome after deleting at most one character from it.
