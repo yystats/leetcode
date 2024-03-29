@@ -1,4 +1,4 @@
-heights = [1,3,2,4]
+heights = [4,3,2,1]
 
 def getOceanView(heights):
     
