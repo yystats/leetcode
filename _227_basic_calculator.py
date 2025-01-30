@@ -10,6 +10,10 @@ Output: 40
 
 '''
 
+'''
+key idea: push to the stack once we see +-*/, and user another pointer to track the sign. 
+'''
+
 def calculator(s):
         s = s.replace(" ", "")  # Remove spaces
         stack = []
