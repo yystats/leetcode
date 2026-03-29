@@ -1,3 +1,6 @@
+# Pairwise comparison: iterate adjacent characters — if the current value is
+# smaller than the next, subtract it (subtractive case, e.g. IV=4); otherwise
+# add it. Always add the last character since it has no right neighbor.
 def romanToInt(s):
     roman = {'I':1, 'V':5, 'X':10, 'L':50, 'C':100, 'D':500, 'M':1000}
 

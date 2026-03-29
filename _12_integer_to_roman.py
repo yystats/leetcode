@@ -1,3 +1,6 @@
+# Greedy approach: list values and symbols from largest to smallest (including
+# subtractive cases like CM=900, CD=400, IV=4). Repeatedly subtract the largest
+# fitting value and append its symbol.
 def intToRoman(num):
         symbols = [
             'M', 'CM', 'D', 'CD',
