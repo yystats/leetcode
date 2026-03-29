@@ -40,5 +40,24 @@ def calculator(s):
         return sum(stack)  # Sum up the final stack values
 
 
-s = "32       +2*2*2"
-print(calculator(s) == 40)
+# s = "32       +2*2*2"
+# print(calculator(s) == 40)
+
+
+
+### only + and *
+def calculator2(expression):
+    expression = expression.replace(" ", "")
+    total = 0
+    for add_term in expression.split('+'):
+        product = 1
+        for prod_term in add_term.split('*'):
+            product *= int(prod_term)
+        total += product
+    return total
+
+s = "5*9       +2*2*2 + 8*9"
+print(calculator2(s))
+
+
+
