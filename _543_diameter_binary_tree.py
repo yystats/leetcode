@@ -49,3 +49,11 @@ print(f"The diameter of the tree is: {sol.get_diameter(tree)}")
 # Output: 4 (Path: 6 -> 4 -> 2 -> 5 -> 7)
 
 
+# manual test
+
+
+
+
+
+
+
