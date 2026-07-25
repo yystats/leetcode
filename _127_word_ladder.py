@@ -56,14 +56,18 @@ def wordLadder(beginWord, endWord, wordlist):
 
 
 # Time complexity: O(N^2 * L)
-#   Same BFS structure as wordLadder (N words, length L, O(N * L^2) to explore
-#   all neighbors as above), but here each queue entry is a *whole path* rather
-#   than just a word. `path + [nextWord]` copies the existing path (up to O(N)
-#   words) every time a neighbor is enqueued, and this happens O(N) times total
-#   in the worst case (shortest path can be as long as O(N) words), adding an
-#   extra O(N^2) list-copy overhead on top of the O(N * L^2) neighbor search.
-#   Combined: O(N * L^2 + N^2) which is dominated by O(N^2 * L) for typical
-#   inputs where L << N (word length is small relative to dictionary size).
+#   Each queue entry here is a *whole path*, not just a word, so every
+#   `path + [nextWord]` copies the entire path built so far. If a word is
+#   discovered at BFS depth k (it's the k-th word in its path), that copy
+#   touches k words of length L, costing O(k * L). Each of the N dictionary
+#   words is enqueued at most once (removed from `words` right away), and in
+#   the worst case (a "chain" ladder that snakes through every word) depths
+#   range from 1 up to N. Summing the copy cost over all N words:
+#       L + 2L + 3L + ... + N*L = L * (1 + 2 + ... + N) = L * N(N+1)/2 ~ O(N^2 * L)
+#   Add the O(N * L^2) cost of generating/hashing the 26L candidate strings
+#   per word (same neighbor-search cost as wordLadder), and the total is
+#   O(N^2 * L + N * L^2) = O(N^2 * L) whenever L << N, i.e. words are short
+#   relative to the dictionary size (the typical case for this problem).
 # Space complexity: O(N^2 * L)
 #   In the worst case the queue can hold O(N) paths, each up to O(N) words of
 #   length L -> O(N^2 * L) to store all in-flight paths simultaneously.
